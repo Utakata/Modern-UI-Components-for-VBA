@@ -1,111 +1,111 @@
-# A friendly helper DLL that will make you smile.
-**No installation**, **no ActiveX**, **no Admin-Rights.** 
-Just add this Dll to your VBA project folder and have some cool UI features. Have only tested in MS Access but it should work in all VBA environment. Works with ACCDE too.
+# あなたを笑顔にするフレンドリーなヘルパーDLL
+**インストール不要**、**ActiveX不要**、**管理者権限不要**。
+このDLLをVBAプロジェクトフォルダに追加するだけで、素晴らしいUI機能を利用できます。MS Accessでのみテストされていますが、すべてのVBA環境で動作するはずです。ACCDEでも動作します。
 
-The main goal is to bring some .NET function to your VBA project. Make your project stand-out visually and functionally!
-Since this plugin does not require admin rights nor installation, you can distribute your app without having to worry about your client's admin policy.
+主な目的は、VBAプロジェクトにいくつかの.NET機能をもたらすことです。あなたのプロジェクトを視覚的にも機能的にも際立たせましょう！
+このプラグインは管理者権限もインストールも必要としないため、クライアントの管理者ポリシーを気にすることなくアプリケーションを配布できます。
 
-And of course with minimal code!
+そしてもちろん、最小限のコードで実現できます！
 
 ```diff
-- NOTE:
-- If you get an error regarding unable to load find/load dlls. Please make sure you have the bin folder where your project is AND right click on vba_tools.dll => property => unblock. Do the same for all dlls in the bin folder.
-- this is an evolving project. Function names from one version to another might varry, please test your wrappers before updating to the newest one.
+- 注意:
+- DLLの読み込みや検索ができないというエラーが表示される場合。プロジェクトがある場所にbinフォルダがあることを確認し、vba_tools.dllを右クリック => プロパティ => 「許可する（ブロック解除）」を選択してください。binフォルダ内のすべてのDLLに対して同じ操作を行ってください。
+- これは進化中のプロジェクトです。バージョンによって関数名が変わる可能性がありますので、最新版に更新する前にラッパーをテストしてください。
 
 ```
 
-# Be safe
-Use following sites to check for any malware for any files you download from online.
+# 安全性の確保
+オンラインからダウンロードしたファイルのマルウェアチェックには、以下のサイトをご利用ください。
 https://virusdesk.kaspersky.com/
 https://www.virustotal.com/
 
 ![OnlineScanner](https://raw.githubusercontent.com/krishKM/VBA_TOOLS/master/screenshots/vbatoolsIsSafe.png)
 
-# Unblock the Dlls if necessary.
+# 必要に応じてDLLのブロックを解除してください。
 ![UnblockADllPicture](https://raw.githubusercontent.com/krishKM/VBA_TOOLS/master/screenshots/unblockADll1.png)
 
-## Current progress / bugfixings
+## 現在の進捗 / バグ修正
 ```VBA
-	+ 27/01/2022: adding attachement from outlook on 64bit office fixed.
-				: Mysql nuget packages updated.
-				: WebApi prefers tls 1.2
-				: Drag&Drop few bugs corrected + shows number of files dropped (if closeAfterSelection=false is set.)
-				: x86 and x64 are separately built and zipped in their own zip file
+	+ 2022/01/27: 64bit OfficeでのOutlookからの添付ファイル追加を修正。
+				: MySQL NuGetパッケージを更新。
+				: WebApiがTLS 1.2を優先するように変更。
+				: ドラッグ＆ドロップのいくつかのバグを修正 + ドロップされたファイル数を表示（closeAfterSelection=falseが設定されている場合）。
+				: x86とx64は個別にビルドされ、それぞれのzipファイルに圧縮されています
 
-	previous:
-	+ Toast now takes json options. minor bugs fixed in dialog forms
-	+ All functions are grouped under appropriate class names.  i.e Dll.String.AllStringRelatedFunctions
-	- Make sure, you have update all your previous codings
+	以前:
+	+ ToastがJSONオプションを受け取るようになりました。ダイアログフォームの軽微なバグを修正
+	+ すべての関数は適切なクラス名の下にグループ化されました。 例：Dll.String.AllStringRelatedFunctions
+	- 以前のコードをすべて更新していることを確認してください
 	
-	+ Make any Window transparent: Make either entire window as transparent or set your key colour and only make those pixels transparent.
-	+ IsKeyDown(keyCode): returns true or false, whether a given key is pressed or not. This can be used in any event and useful to check whether CTRL or Shift key is pressed.
+	+ 任意のウィンドウを透明にする：ウィンドウ全体を透明にするか、キーカラーを設定してそのピクセルのみを透明にすることができます。
+	+ IsKeyDown(keyCode): 指定されたキーが押されているかどうか、trueまたはfalseを返します。これはどのイベントでも使用でき、CTRLやShiftキーが押されているかを確認するのに便利です。
 	
-	+ object ExecuteScalar : (DatabaseType dbType, string connectionString, string sql) :Executes and SQL and returns first row first column of the result set or an empty string
-	+ bool ExecuteNonQuery(DatabaseType dbType, string connectionString, string sql)	:Returns true or false if the nonQuery sql command was success
-	+ string MySqlGetAvailableServerFromList(string[] connectionString)					:Takes array of connetionstrings and returns first reachable connectionstring. or ""
-	+ bool MySqlServerIsReachable(string connectionString)								:Connects to a MySql server using the connectionstring and returns true or false
+	+ object ExecuteScalar : (DatabaseType dbType, string connectionString, string sql) : SQLを実行し、結果セットの最初の行の最初の列、または空の文字列を返します
+	+ bool ExecuteNonQuery(DatabaseType dbType, string connectionString, string sql)	: 非クエリSQLコマンドが成功した場合はtrue、そうでない場合はfalseを返します
+	+ string MySqlGetAvailableServerFromList(string[] connectionString)					: 接続文字列の配列を受け取り、最初に到達可能な接続文字列、または""を返します
+	+ bool MySqlServerIsReachable(string connectionString)								: 接続文字列を使用してMySQLサーバーに接続し、trueまたはfalseを返します
 ```
 
 
-## What it does?
-Helps you to make your application more user-friendly by providing some .NET components and functions that you can use within your VBA application. Visually and functionally cooler than VBA!
+## 機能について
+VBAアプリケーション内で使用できる.NETコンポーネントや機能を提供し、アプリケーションをよりユーザーフレンドリーにする手助けをします。VBAよりも視覚的・機能的にクールです！
 
-## How to use?
-Some basic VBA skills are required! 
-Just download the <a href="https://github.com/krishKM/VBA_TOOLS/tree/master/samples"> Dll + bin folder </a> from the sample folder and add them to your project folder. The ACCDB contains samples where you can copy and paste it to your VBA application.
+## 使用方法
+基本的なVBAのスキルが必要です！
+サンプルフォルダから <a href="https://github.com/krishKM/VBA_TOOLS/tree/master/samples"> Dll + bin フォルダ </a> をダウンロードし、プロジェクトフォルダに追加してください。ACCDBには、VBAアプリケーションにコピー＆ペーストできるサンプルが含まれています。
 
-**Keep the VBA_TOOLS.Dll & Bin folder where your vba project is to enjoy all functions.**
+**すべての機能を利用するには、VBAプロジェクトがある場所に VBA_TOOLS.Dll と Bin フォルダを配置してください。**
 
 
 
-# Interesting List of features
-(Update hasn't been released with these new functions)
+# 興味深い機能リスト
+（これらの新機能を含む更新はまだリリースされていません）
 <ul>
-	<li>ContextMenu
+	<li>ContextMenu（コンテキストメニュー）
 		<ul>
-			<li>Show Cool Context Menu</li>
+			<li>Show Cool Context Menu（クールなコンテキストメニューの表示）</li>
 		</ul>
 	</li>
-	<li>Barcode Control
+	<li>Barcode Control（バーコードコントロール）
 		<ul>
-			<li>Currently supports Code39, Code128, QrCode</li>
-			<li>Currently under testing</li>
+			<li>現在、Code39、Code128、QrCodeをサポートしています</li>
+			<li>現在テスト中</li>
 		</ul>
 	</li>
-	<li>Colour
+	<li>Colour（カラー）
 		<ul>
-			<li>HexToAccess</li>
-			<li>AccessToHex</li>
+			<li>HexToAccess（HexからAccessカラーへ）</li>
+			<li>AccessToHex（AccessカラーからHexへ）</li>
 		</ul>
 	</li>
-	<li>DB Class: (Only supported MySQL)
+	<li>DB Class: (MySQLのみサポート)
 		<ul>
-			<li>ExecuteScalar	: executes a MySql select query and returns first row first column object</li>
-			<li>ExecuteNonQuery	: executes a MySql update/insert query and returns true or false if success.</li>
+			<li>ExecuteScalar	: MySQLのSELECTクエリを実行し、最初の行の最初の列のオブジェクトを返します</li>
+			<li>ExecuteNonQuery	: MySQLのUPDATE/INSERTクエリを実行し、成功した場合はtrue、失敗した場合はfalseを返します</li>
 			<li>string MySqlGetAvailableServerFromList(string[] connectionString)</li>
-				<ul>Takes array of connetionstrings and returns first reachable connectionstring. or "".<br/>Handy if you have multiple back-end servers and would like to know which one is reachable. Uses threads so it's fast!</ul>
+				<ul>接続文字列の配列を受け取り、最初に到達可能な接続文字列、または""を返します。<br/>複数のバックエンドサーバーがあり、どれが到達可能かを知りたい場合に便利です。スレッドを使用しているため高速です！</ul>
 			<li>bool MySqlServerIsReachable(string connectionString)</li>
-				<ul>:Connects to a MySql server using the connectionstring and returns true or false</ul>
+				<ul>: 接続文字列を使用してMySQLサーバーに接続し、trueまたはfalseを返します</ul>
 		</ul>
 	</li>
-	<li>Dialog Boxes
+	<li>Dialog Boxes（ダイアログボックス）
 		<ul>
-			<li>Cool DialogBox</li>
-			<li>Extended Cool DialogBox</li>
-			<li>Cool Simple DialogBox</li>
-			<li>Simple Are you sure?</li>
-			<li>Drag and Drop OpenFileDialog
+			<li>Cool DialogBox（クールなダイアログボックス）</li>
+			<li>Extended Cool DialogBox（拡張クールダイアログボックス）</li>
+			<li>Cool Simple DialogBox（クールでシンプルなダイアログボックス）</li>
+			<li>Simple Are you sure?（シンプルな確認ダイアログ）</li>
+			<li>Drag and Drop OpenFileDialog（ドラッグ＆ドロップ対応ファイルオープンダイアログ）
 			<ul>
-				<li>A simple open file dialog box that supports drag </li>
+				<li>ドラッグに対応したシンプルなファイルオープンダイアログボックス</li>
 			</ul>
 			</li>
 		</ul>
 	</li>
-	<li>Display
+	<li>Display（ディスプレイ）
 	<ul>
 		<li>GetNumberOfMonitors
 		<ul>
-			<li>Returns number of monitors </li>
+			<li>モニターの数を返します</li>
 		</ul>
 		</li>
 	</ul>
@@ -114,29 +114,29 @@ Just download the <a href="https://github.com/krishKM/VBA_TOOLS/tree/master/samp
 	<ul>
 		<li>GetPrimaryMonitorHandle
 		<ul>
-			<li>Returns handle to primary monitor</li>
+			<li>プライマリモニターのハンドルを返します</li>
 		</ul>
 		</li>
 		<li>GetPrimaryMonitorBounds
 		<ul>
-			<li>Get information about the primary monitor</li>
+			<li>プライマリモニターに関する情報を取得します</li>
 		</ul>
 		</li>
 		<li>GetMonitorBoundsByHandle
 		<ul>
-			<li>Returns monitor information from a window handle.</li>
+			<li>ウィンドウハンドルからモニター情報を返します</li>
 		</ul>
 		</li>
-		<li>GetCursorPosition</li>
+		<li>GetCursorPosition（カーソル位置の取得）</li>
 	</ul>
 	</li>
-	<li>Form
+	<li>Form（フォーム）
 	<ul>
-		<li>Make Transparent Window</li>
-		<li>Change Access background colour</li>
+		<li>Make Transparent Window（透明ウィンドウの作成）</li>
+		<li>Change Access background colour（Accessの背景色の変更）</li>
 		<li>Drage Me
 		<ul>
-			<li>Allows to move a borderless form</li>
+			<li>枠のないフォームを移動できるようにします</li>
 		</ul>
 		</li>
 	</ul>
@@ -145,123 +145,123 @@ Just download the <a href="https://github.com/krishKM/VBA_TOOLS/tree/master/samp
 	<ul>
 		<li>FTPS_UPLOAD
 		<ul>
-			<li>uploads file to given ftp server</li>
+			<li>指定されたFTPサーバーにファイルをアップロードします</li>
 		</ul>
 		</li>
 		<li>FTPDeleteFile
 		<ul>
-			<li>deletes a file from given ftp location</li>
+			<li>指定されたFTPの場所からファイルを削除します</li>
 		</ul>
 		</li>
 		<li>FTPFileExists
 		<ul>
-			<li>Checks if a given file exists in given ftp location</li>
+			<li>指定されたファイルが指定されたFTPの場所に存在するかを確認します</li>
 		</ul>
 		</li>
 	</ul>
 	</li>
 	<li></li>
 	<li></li>
-	<li>Graphics
+	<li>Graphics（グラフィックス）
 	<ul>
-		<li>Load Picture from URL to ImageControl without saving</li>
-		<li>Load web urls</li>
-		<li>Load local pictures</li>
-		<li>Convert blob fields to pictures</li>
+		<li>Load Picture from URL to ImageControl without saving（保存せずにURLから画像コントロールへ画像を読み込む）</li>
+		<li>Load web urls（Web URLの読み込み）</li>
+		<li>Load local pictures（ローカル画像の読み込み）</li>
+		<li>Convert blob fields to pictures（BLOBフィールドを画像に変換）</li>
 		<li>MeasureText
 		<ul>
-			<li>Calculates height and width in pixels for a given text</li>
+			<li>指定されたテキストの高さと幅をピクセル単位で計算します</li>
 		</ul>
 		</li>
 		<li>ByteToImage
 		<ul>
-			<li>Converts ByteArray to an Image and saves in a provided location.</li>
+			<li>バイト配列を画像に変換し、指定された場所に保存します</li>
 		</ul>
 		</li>
 		<li>ByteToBitmap
 		<ul>
-			<li>Converts Byte Array to a bitmap</li>
+			<li>バイト配列をビットマップに変換します</li>
 		</ul>
 		</li>
 		<li>TakeScreenShotFromHwnd
 		<ul>
-			<li>Takes a screenshot of a window by provided handle. Returns byte array </li>
+			<li>指定されたハンドルでウィンドウのスクリーンショットを撮ります。バイト配列を返します</li>
 		</ul>
 		</li>
 		<li>TakeScreenShot
 		<ul>
-			<li>Take screenshot of entire desktop. Returns byte array</li>
+			<li>デスクトップ全体のスクリーンショットを撮ります。バイト配列を返します</li>
 		</ul>
 		</li>
 		<li>TakeScreenShot1
 		<ul>
-			<li>Takes screenshot and saves in a given path</li>
+			<li>スクリーンショットを撮り、指定されたパスに保存します</li>
 		</ul>
 		</li>
 		<li>PictureFromUrl
 		<ul>
-			<li>Loads picture from an url and returns byte array</li>
+			<li>URLから画像を読み込み、バイト配列を返します</li>
 		</ul>
 		</li>
 		<li>SaveClipboardToImage
 		<ul>
-			<li>Saves clipboard picture to a given path and format</li>
+			<li>クリップボードの画像を指定されたパスと形式で保存します</li>
 		</ul>
 		</li>
 	</ul>
 	</li>
-	<li>InputBoxes
+	<li>InputBoxes（インプットボックス）
 	<ul>
-		<li>Show Cool InputBox</li>
-		<li>Email with validation</li>
-		<li>Password</li>
-		<li>Multiline / single line</li>
-		<li>Number only</li>
-		<li>Dates with validation</li>
-		<li>Show DropDown box</li>
+		<li>Show Cool InputBox（クールなインプットボックスの表示）</li>
+		<li>Email with validation（検証付きメール）</li>
+		<li>Password（パスワード）</li>
+		<li>Multiline / single line（複数行 / 単一行）</li>
+		<li>Number only（数値のみ）</li>
+		<li>Dates with validation（検証付き日付）</li>
+		<li>Show DropDown box（ドロップダウンボックスの表示）</li>
 	</ul>
 	</li>
 	<li>JSON
 	<ul>
-		<li>Uses Newtonsoft.Json</li>
+		<li>Newtonsoft.Jsonを使用</li>
 		<li>ExportToJSON
 		<ul>
-			<li>Allows MS Access users you to export queries, tables SQL results as JSON string</li>
+			<li>MS Accessユーザーがクエリ、テーブル、SQL結果をJSON文字列としてエクスポートできるようにします</li>
 		</ul>
 		</li>
 		<li>ImportJSON
 		<ul>
-			<li>Allows MS Access users to import records to table using JSON string arrays</li>
+			<li>MS AccessユーザーがJSON文字配列を使用してテーブルにレコードをインポートできるようにします</li>
 		</ul>
 		</li>
 		<li>JSONString
 		<ul>
-			<li>String expression of a Newtonsoft.Json object</li>
+			<li>Newtonsoft.Jsonオブジェクトの文字列表現</li>
 		</ul>
 		</li>
 		<li>JSONGetObject
 		<ul>
-			<li>retireve Json object by property name</li>
+			<li>プロパティ名でJsonオブジェクトを取得します</li>
 		</ul>
 		</li>
 		<li>JSONSetObject
 		<ul>
-			<li>Adds a property to Json object</li>
+			<li>Jsonオブジェクトにプロパティを追加します</li>
 		</ul>
 		</li>
 		<li>JSONGetValue
 		<ul>
-			<li>Retrieves a value from json object</li>
+			<li>jsonオブジェクトから値を取得します</li>
 		</ul>
 		</li>
 		<li>JSONToObject
 		<ul>
-			<li>Converts string json to a dynamic object</li>
+			<li>文字列のjsonを動的オブジェクトに変換します</li>
 		</ul>
 		</li>
 		<li>JSONSerialize
 		<ul>
-			<li>Returns string expression of a dynamic json object</li>
+			<li>動的jsonオブジェクトの文字列表現を返します</li>
 		</ul>
 		</li>
 	</ul>
@@ -270,43 +270,43 @@ Just download the <a href="https://github.com/krishKM/VBA_TOOLS/tree/master/samp
 	<ul>
 		<li>UrlIsReachable
 		<ul>
-			<li>Returns true or false whether the url is reachable</li>
+			<li>URLが到達可能かどうかのtrueまたはfalseを返します</li>
 		</ul>
 		</li>
 		<li>UrlIsValid
 		<ul>
-			<li>Returns true or false whether the url is well formatted</li>
+			<li>URLの形式が正しいかどうかのtrueまたはfalseを返します</li>
 		</ul>
 		</li>
 		<li>UrlIsLocalPath
 		<ul>
-			<li>Is the given url a local file path?</li>
+			<li>指定されたURLはローカルファイルパスですか？</li>
 		</ul>
 		</li>
-		<li>GetExternalIP</li>
+		<li>GetExternalIP（外部IPの取得）</li>
 	</ul>
 	</li>
-	<li>Notification
+	<li>Notification（通知）
 	<ul>
-		<li>Show Non-Blocking Notifications</li>
-		<li>Show Success</li>
-		<li>Show Warnings</li>
-		<li>Show Error</li>
+		<li>Show Non-Blocking Notifications（ノンブロッキング通知の表示）</li>
+		<li>Show Success（成功を表示）</li>
+		<li>Show Warnings（警告を表示）</li>
+		<li>Show Error（エラーを表示）</li>
 	</ul>
 	</li>
-	<li>ProgressBar
+	<li>ProgressBar（プログレスバー）
 	<ul>
-		<li>Show Cool ProgressBar</li>
+		<li>Show Cool ProgressBar（クールなプログレスバーの表示）</li>
 	</ul>
 	</li>
-	<li>RegEx
+	<li>RegEx（正規表現）
 	<ul>
 		<li>IsMatch</li>
 		<li>GetFirstMatch</li>
 		<li>Replace</li>
 	</ul>
 	</li>
-	<li>String
+	<li>String（文字列）
 	<ul>
 		<li>PadLeft</li>
 		<li>PadRight</li>
@@ -321,90 +321,90 @@ Just download the <a href="https://github.com/krishKM/VBA_TOOLS/tree/master/samp
 </ul>
 
 
-### [Show non-blocking notifications]
-Inspired from Toastr (https://github.com/CodeSeven/toastr).
-Allowing VBA users to show simple notifications without having to wait or stress their VBA application.
-With a simple command a little colourful notification pops up with a message without taking any focus or disturbing the user.
-I mainly use it to show messages that do not require action. I.e. A mail has arrived or a task has been completed.
+### [ノンブロッキング通知の表示]
+Toastr (https://github.com/CodeSeven/toastr) に触発されました。
+VBAユーザーが待機したり、VBAアプリケーションに負荷をかけたりすることなく、シンプルな通知を表示できるようにします。
+簡単なコマンドで、フォーカスを奪ったりユーザーを邪魔したりすることなく、メッセージ付きの小さなカラフルな通知がポップアップします。
+主に、アクションを必要としないメッセージを表示するために使用します。例：メールが届いた、タスクが完了した、など。
 
 ![just a notification](https://raw.githubusercontent.com/krishKM/VBA_TOOLS/master/screenshots/information.png)
 
-## customise your notification like you want:
-following customisations are possible now.
+## 通知を好みに合わせてカスタマイズ：
+以下のカスタマイズが可能になりました。
 ```
-1.Message   : can contain <a href="">text</a> for hyperlinks (any other html tags are ignored, hyperlink must begin with www or http or https (basically well formatted links only?)
+1.Message   : ハイパーリンク用の <a href="">text</a> を含めることができます（その他のHTMLタグは無視されます。ハイパーリンクはwww、http、またはhttpsで始まる必要があります（基本的に整形式のリンクのみ？）
 ```diff
-+ It is now possible to open local files. hyperlinks must be a local file format. I.e. <a href="F:\folderName\picture.png">
-+ Testing: A call back command (Docmd.OpenForm only) can be embedded into the hyperlink
++ ローカルファイルを開くことができるようになりました。ハイパーリンクはローカルファイル形式である必要があります。例： <a href="F:\folderName\picture.png">
++ テスト中: コールバックコマンド（Docmd.OpenFormのみ）をハイパーリンクに埋め込むことができます
 ```
-2.Duration in Milli-Seconds (default 2000. 0 will keep the notification for long time.  int.max)
-3.Background colour (html colour code)
-4.Font colour (html colour code)
-5.X,Y position on the desktop
+2.Duration in Milli-Seconds (ミリ秒単位の期間) (デフォルトは2000。0にすると通知が長時間表示されます。int.max)
+3.Background colour (背景色) (HTMLカラーコード)
+4.Font colour (フォント色) (HTMLカラーコード)
+5.X,Y position on the desktop (デスクトップ上のX,Y位置)
 ```
 
 
 
 ![picture of 3 notifications](https://raw.githubusercontent.com/krishKM/VBA_TOOLS/master/screenshots/VBA-RICH-UI-collections.png)
 ```VBA
-'used commands
-Toastr.Toast "Ups something went wrong!",vberror,0
-Toastr.Toast "Yellow weather warning!",vbexclamation,0
-Toastr.Toast "You've just received a notification",vbinformation,0
+'使用されるコマンド
+Toastr.Toast "おっと、何かが間違っています！",vberror,0
+Toastr.Toast "黄色の気象警報！",vbexclamation,0
+Toastr.Toast "通知を受信しました",vbinformation,0
 ```
 
-in Action
+動作中の様子
 ![Notification in action gif](https://github.com/krishKM/VBA_TOOLS/blob/master/screenshots/InAction.gif)
 ![Notification in action gif](https://github.com/krishKM/VBA_TOOLS/blob/master/screenshots/InAction1.gif)
 
-## how about little interaction with user and show some hyperlinks?
-You can have html ```<a href="">text</a>``` tags in your message which will be translated into hyperlinks.
+## ユーザーとの対話やハイパーリンクの表示はどうですか？
+メッセージ内にHTMLの ```<a href="">text</a>``` タグを含めることができ、これらはハイパーリンクに変換されます。
 ![Notification in action gif](https://github.com/krishKM/VBA_TOOLS/blob/master/screenshots/Hyperlink.png)
 
-Local files as hyperlinks: ```<a href="F:\folderName\picture.png">ViewThisImage</a>```
+ハイパーリンクとしてのローカルファイル: ```<a href="F:\folderName\picture.png">この画像を表示</a>```
 
-Callback command:
-1. OpenForm hyperlink: ```<a href="DoCmd.OpenForm frmImageView,acNormal,,wherecondition:=id=2">OpenForm</a>```
+コールバックコマンド:
+1. OpenForm ハイパーリンク: ```<a href="DoCmd.OpenForm frmImageView,acNormal,,wherecondition:=id=2">フォームを開く</a>```
 ```VBA
-	Note: the docmd command does not contains any " or '
-	Filter, WhereCondition, DataMode, WindowMode must be named parameters. I.e. Filter:=FilterCondition or WhereCondition:=id=2
+	Note: docmdコマンドには " や ' を含めないでください
+	Filter, WhereCondition, DataMode, WindowMode は名前付き引数である必要があります。例：Filter:=FilterCondition または WhereCondition:=id=2
 	
-	'Similarly you may also pass a function name which will be executed to the host application
-	<a href="ExecuteMe()"> Execute a function in the host application </a>
+	'同様に、ホストアプリケーションで実行される関数名を渡すこともできます
+	<a href="ExecuteMe()"> ホストアプリケーションの関数を実行する </a>
 	
 	
 		
-	[Toast Notifications]
-	1. Toast notification parsing hyperlink function corrected
-	2. Toast can now open Docmd.OpenForm
-	3. Toast can now execute local functions. I.e. <a href="ExecuteMe()"> Execute a function in the host application </a> will execute "ExecuteMe()" when clicked the link.
-	4. Toast / Simple Dialogboxes can now execute local functions with parameters i.e. <a href="ExecuteMe('ParameterA','ParameterB')"> ExecuteMe </a>
-	4. Toast / Simple  Dialogboxes can now close itself after clicking a hyperlink. Use closeme="true" attribute. i.e. <a href="ExecuteMe('ParameterA','ParameterB')" closeme="true"> Execute and close Me </a>
+	[Toast Notifications（トースト通知）]
+	1. トースト通知のハイパーリンク解析機能を修正しました
+	2. トーストで Docmd.OpenForm を開けるようになりました
+	3. トーストでローカル関数を実行できるようになりました。例： <a href="ExecuteMe()"> ホストアプリケーションの関数を実行する </a> は、リンクをクリックしたときに "ExecuteMe()" を実行します。
+	4. トースト / シンプルダイアログボックスで、パラメータ付きのローカル関数を実行できるようになりました。例： <a href="ExecuteMe('ParameterA','ParameterB')"> ExecuteMe </a>
+	4. トースト / シンプルダイアログボックスで、ハイパーリンクをクリックした後に自身を閉じることができるようになりました。closeme="true" 属性を使用してください。例： <a href="ExecuteMe('ParameterA','ParameterB')" closeme="true"> 実行して私を閉じる </a>
 	
 	
 ```
 
 
 
-## Download 
-Download the sample and test it in your project. Please leave comment how you feel.
-<a href="https://github.com/krishKM/VBA_TOOLS/tree/master/samples"> Samples</a>
+## ダウンロード
+サンプルをダウンロードして、プロジェクトでテストしてください。感想をコメントに残してください。
+<a href="https://github.com/krishKM/VBA_TOOLS/tree/master/samples"> サンプル</a>
 
 
 <hr>
 <hr>
 
-# Show Cool DialogBox
-Standard Message boxes are great but sometimes you want little more than standard features.
-I.e
+# クールなダイアログボックスの表示
+標準のメッセージボックスは素晴らしいですが、標準以上の機能が欲しい場合もあります。
+例：
 <ul>
-  <li>Be able to have some colours</li>
-  <li>Be able to have more than 3 buttons</li>
-  <li>Be able auto-close</li>
-  <li>Be able to use HTML tags </li>
-  <li>not stressing your vba app with a loop?</li>
+  <li>色を付けたい</li>
+  <li>3つ以上のボタンを持ちたい</li>
+  <li>自動で閉じるようにしたい</li>
+  <li>HTMLタグを使いたい</li>
+  <li>VBAアプリにループ処理で負荷をかけたくない</li>
 </ul>
-Meet the new simplified DialogBox for VBA users. This dialogbox will allow above listed features and should help you to keep your application colourful. :) This feature is still under development and could some feedback from testers.
+VBAユーザー向けの新しい簡素化されたダイアログボックスをご紹介します。このダイアログボックスは上記の機能を可能にし、アプリケーションをカラフルに保つのに役立ちます。 :) この機能はまだ開発中であり、テスターからのフィードバックをお待ちしています。
 
 
 
@@ -421,184 +421,184 @@ Meet the new simplified DialogBox for VBA users. This dialogbox will allow above
 ![Cool DialogBox](https://raw.githubusercontent.com/krishKM/VBA_TOOLS/master/screenshots/VBA-RICH-UI-DialogboxGreen.png)
 ![Cool DialogBox1](https://raw.githubusercontent.com/krishKM/VBA_TOOLS/master/screenshots/VBA-RICH-DIALOG-BOX.png)
 
-There is vba wrapper in the sample accdb which can be extended as per your need. It uses the 3rd party JSON Converter plugin with some miner fixes from my side.
+サンプルaccdbにはVBAラッパーがあり、必要に応じて拡張できます。これはサードパーティのJSON Converterプラグインを使用しており、私の方でいくつかの修正を加えています。
 
 ```
-  'usign the wrapper it would be as simple as 
-  Debug.Print gDll.DialogRich("This is a title", "Some content", (vbExclamation + vbYesNo))
+  'ラッパーを使えばこれくらいシンプルになります
+  Debug.Print gDll.DialogRich("これはタイトルです", "いくつかのコンテンツ", (vbExclamation + vbYesNo))
 ```
 
-a simplified version is also avilable (without HTML rendering)
-# Cool Simple MessageBox
+簡素化されたバージョンも利用可能です（HTMLレンダリングなし）
+# クールでシンプルなメッセージボックス
 ![Cool DialogBox](https://raw.githubusercontent.com/krishKM/VBA_TOOLS/master/screenshots/VBA-RICH-UI-CoolSimpleMessageBox.png)
 
-Allows one to show simple message box
+シンプルなメッセージボックスを表示できます
 
 
-# Show cool Progressbar
-Progressbars 
+# クールなプログレスバーの表示
+プログレスバー
 
-crucial element when informing users about a progress. Meet the cool progressbar which can pop up on top of your application at any time with a simple code as such as.
+進捗状況をユーザーに知らせる際の重要な要素です。シンプルなコードでいつでもアプリケーションの上にポップアップできるクールなプログレスバーをご紹介します。
 
 ```
   Dim ProgressBarID As Long
-  ProgressBarID = gDll.ShowProgressBar(100, "Executing your query", "Please wait. We are preparing printer drivers")
+  ProgressBarID = gDll.ShowProgressBar(100, "クエリを実行中", "お待ちください。プリンタドライバを準備しています")
     
-  ProgressBarID = gDll.SetProgressBar(ProgressBarID, 10, "Waiting for driver..")
+  ProgressBarID = gDll.SetProgressBar(ProgressBarID, 10, "ドライバを待機中..")
   
-  gdll.CloseProgressbar ProgressbarId 'Will close the progressbar
+  gdll.CloseProgressbar ProgressbarId 'プログレスバーを閉じます
 ```
 ![Cool ProgressbarGreen](https://raw.githubusercontent.com/krishKM/VBA_TOOLS/master/screenshots/VBA-RICH-UI-ProgressBar.png)
 
-As usual, you are allowed to change theme colours as per your taste.
+いつものように、好みに応じてテーマカラーを変更できます。
 ![Cool ProgressbarRed](https://raw.githubusercontent.com/krishKM/VBA_TOOLS/master/screenshots/VBA-RICH-UI-ProgressBarRed.png)
 
 ### note:
-```ShowProgressBar and SetProgressBar``` returns an ID which you can refer your progressbar to. This also allows VBA users to have multiple progressbars at the same time. 
+```ShowProgressBar および SetProgressBar``` はIDを返し、これを使ってプログレスバーを参照できます。これにより、VBAユーザーは同時に複数のプログレスバーを持つことも可能になります。
 
-# Show Cool InputBoxes
-InputBox another heavily used component. Some like the plain system looking InputBox but we love the modern UI colours :)
-What would you chose from these tables?
+# クールなインプットボックスの表示
+インプットボックスも頻繁に使用されるコンポーネントです。システムのプレーンな見た目のインプットボックスを好む人もいますが、私たちはモダンなUIカラーが大好きです :)
+これらのテーブルからどれを選びますか？
 
 ![InputBoxCollection](https://raw.githubusercontent.com/krishKM/VBA_TOOLS/master/screenshots/InputBoxDefault.png)  ![InputBoxCollection](https://raw.githubusercontent.com/krishKM/VBA_TOOLS/master/screenshots/VBA-RICH-UI-InputBoxMultiline.png) 
 
-## Nice colours! but what's the point?
-The new InputBoxes comes with some inbuilt functions and can be configured accordingly.
-Following types are supported now.
+## 素敵な色ですね！でも何の意味があるの？
+新しいインプットボックスにはいくつかの組み込み機能があり、それに応じて設定できます。
+現在、以下のタイプがサポートされています。
 ```
-'        Password        = 1, : Masked using systempassword mask
-'        Text            = 2, : Single line text:
-'        MultilineText   = 32, : Multi line text box
-'        Number          = 4, : Numbers only
-'        ShortDate       = 8, : Masked dd/mm/yyyy. Dates are validated upon exit
-'        LongDate        = 16,  : masked using dd/Month/yyyy
-'        DateTime        = 48,  : masked using dd/mm/yyyy hh:mm:ss
+'        Password        = 1, : システムパスワードマスクを使用してマスクされます
+'        Text            = 2, : 単一行テキスト
+'        MultilineText   = 32, : 複数行テキストボックス
+'        Number          = 4, : 数値のみ
+'        ShortDate       = 8, : dd/mm/yyyy形式でマスクされます。日付は終了時に検証されます
+'        LongDate        = 16,  : dd/Month/yyyy形式でマスクされます
+'        DateTime        = 48,  : dd/mm/yyyy hh:mm:ss形式でマスクされます
 
-and following parameters are accepted: 
-  Except Type, all others are optional
+以下のパラメータが受け入れられます:
+  Type以外はすべてオプションです
   
-  InputBoxType Type,    : number
-  string Title,         : Tile for the input box
-  string Message,       : optional text for the input box
-  int PosX,             : x coordinate relative to the screen to positon this box to
-  int PosY,             : y coordinate relative to the screen to position this box to
-  string ThemeBg,       : html colour code
-  string ThemeForeColour: html colour code
+  InputBoxType Type,    : 数値
+  string Title,         : インプットボックスのタイトル
+  string Message,       : インプットボックスのオプションテキスト
+  int PosX,             : このボックスを配置する画面に対する相対的なX座標
+  int PosY,             : このボックスを配置する画面に対する相対的なY座標
+  string ThemeBg,       : HTMLカラーコード
+  string ThemeForeColour: HTMLカラーコード
 
-' With the dll in place, use it as
+' DLLが配置されていれば、以下のように使用します
 
-  result = gDll.DLL.showinputbox(Type:=32, Title:="", Message:="Tell us what happened on that day!", ThemeBg:="", ThemeForeColour:="")
+  result = gDll.DLL.showinputbox(Type:=32, Title:="", Message:="その日何が起きたか教えてください！", ThemeBg:="", ThemeForeColour:="")
 ```
-#### check out the getCursorPosition function which returns x,y position of the cursor!
+#### カーソルのx,y位置を返す getCursorPosition 関数もチェックしてみてください！
 
 
-in action:
+動作中の様子:
 
 ![InputBoxCollection](https://raw.githubusercontent.com/krishKM/VBA_TOOLS/master/screenshots/InputBox.png)
 
-as always we can change theme colours:)
+いつものように、テーマカラーを変更できます :)
 
 ![purple input box](https://raw.githubusercontent.com/krishKM/VBA_TOOLS/master/screenshots/VBA-RICH-UI-InputBoxPurple.png)
 
-Download <a href="https://github.com/krishKM/VBA_TOOLS/tree/master/samples"> sample</a>
+ダウンロード <a href="https://github.com/krishKM/VBA_TOOLS/tree/master/samples"> サンプル</a>
 
-# [Show DropDown Box]
-Requested from a VBA_TOOLS user. Like other user inputboxes, you can now let your user to select from a cool dropdown box.
+# [ドロップダウンボックスの表示]
+VBA_TOOLSユーザーからのリクエストです。他のユーザーインプットボックスと同様に、ユーザーにクールなドロップダウンボックスから選択させることができるようになりました。
 ![purple input box](https://raw.githubusercontent.com/krishKM/VBA_TOOLS/master/screenshots/DropDownBox.png)
 
-When we decided to make a cool dropdown box, we thought about reasons for not using existing Ms Access DropDown box.
-I personally think, showing icons in a dropdown box would be an amazing idea! :) In addition, standard DropDownBox does not allow one to search partially within the content. That is, being able to search any part of the dropdown selection.
-Like traditional DropDown, we want to show a list of existing query or table.
-So we decided to cover those points at the moment. Surely, going forward we are planing to add following functions.
+クールなドロップダウンボックスを作ろうと決めたとき、既存のMs Accessのドロップダウンボックスを使わない理由について考えました。
+個人的には、ドロップダウンボックスにアイコンを表示するのは素晴らしいアイデアだと思います！ :) さらに、標準のドロップダウンボックスでは、コンテンツ内の部分一致検索ができません。つまり、ドロップダウンの選択肢の任意の部分を検索できる機能です。
+従来のドロップダウンと同様に、既存のクエリやテーブルのリストを表示したいと考えています。
+そこで、現時点ではそれらのポイントをカバーすることにしました。もちろん、将来的には以下の機能を追加する予定です。
 
-1. Grouped entries: DropDown entries will be grouped with a group header.
-2. Having multiple image column?
-3. Change the DropDown style completely: Maybe like a menu with sub menus..
-4. Fix any errors
+1. グループ化されたエントリ：ドロップダウンのエントリをグループヘッダーでグループ化します。
+2. 複数の画像列を持つ？
+3. ドロップダウンのスタイルを完全に変更する：サブメニューを持つメニューのようなものになるかも..
+4. エラーの修正
 
 
-Here is how to use it:
+使用方法は以下の通りです:
 ```VBA
- ?gDll.ShowDropDown("Select an item", "Some inner message?", "qryDropDown", 2, Array(50, 50))
+ ?gDll.ShowDropDown("項目を選択してください", "内部メッセージ？", "qryDropDown", 2, Array(50, 50))
  
  
- Param list:
+ パラメータリスト:
  /// <summary>
-  /// Shows a Dialogbox with a dropdown for selection. Returns a string value
+  /// 選択用のドロップダウン付きダイアログボックスを表示します。文字列値を返します
   /// </summary>
-  /// <param name="title">Title for the inputbox</param>
-  /// <param name="message">Inner message for the input box</param>
-  /// <param name="dbSource">Database path</param>
-  /// <param name="tableSource">Table name or SQL. If SQL is used, use isRawSql=true</param>
-  /// <param name="boundColumn">Column Index to get the value from</param>
-  /// <param name="columnWidths">an Array of integers</param>
-  /// <param name="isRawSql">Specifies whether the tablesource is a plain SQL command </param>
+  /// <param name="title">インプットボックスのタイトル</param>
+  /// <param name="message">インプットボックスの内部メッセージ</param>
+  /// <param name="dbSource">データベースパス</param>
+  /// <param name="tableSource">テーブル名またはSQL。SQLを使用する場合は、isRawSql=trueを使用します</param>
+  /// <param name="boundColumn">値を取得する列インデックス</param>
+  /// <param name="columnWidths">整数の配列</param>
+  /// <param name="isRawSql">tablesourceがプレーンなSQLコマンドであるかどうかを指定します</param>
   /// <param name="posX"></param>
   /// <param name="posY"></param>
   /// <param name="themeColour"></param>
   /// <param name="themeForeColour"></param>
-  /// <returns>String value</returns>
+  /// <returns>文字列値</returns>
 ```
 
 
 ### Note:
-If your datasource contains "icon" as the first column and it is a hyperlink (web or local file), by default those links will be converted to image.
-Usse Array(column0_width, column1_width ...) to set up the column widths
+データソースの最初の列に "icon" が含まれており、それがハイパーリンク（Webまたはローカルファイル）である場合、デフォルトでそれらのリンクは画像に変換されます。
+列幅を設定するには Array(column0_width, column1_width ...) を使用してください
 
 
 <hr>
 
-# Drag and drop OpenFileDialog
-WHAT!! Drag and drop function for vba??? Yes you've read it correct but don't get too excited though:) It's just a file-drop function. Allowing users to select/open/get files using drag and drop method. Direct alternative to an existing FileOpenDialog method. 
+# ドラッグ＆ドロップ対応ファイルオープンダイアログ
+なんと！！VBAでドラッグ＆ドロップ機能？？はい、正しく読みました。でもあまり興奮しすぎないでくださいね :) これは単なるファイルドロップ機能です。ユーザーがドラッグ＆ドロップ方式でファイルを選択/開く/取得できるようにします。既存のFileOpenDialogメソッドの直接的な代替手段です。
 <hr>
   
-### returns a string of JSON Array with all selected files. (if you wish to have string array see below)
-What you do with those file paths is up to you. Maybe at some point later, we might link this with our existing FTP component.
+### 選択されたすべてのファイルを含むJSON配列の文字列を返します。（文字列配列が必要な場合は下記を参照）
+それらのファイルパスをどうするかはあなた次第です。おそらく後で、これを既存のFTPコンポーネントとリンクさせるかもしれません。
 
 
-Currently following parameters are accepted:
+現在、以下のパラメータが受け入れられます:
 
 ```c#
-  All of below are optional.
+  以下はすべてオプションです。
   
-  string Message,         : A message for the dialog box.
-  bool AllowMulti,        : Should it allow multiple files?
-  string[] Filters,       : An array of string => (Description |*.png). Used for file extention filters
-  int PosX,               : X Position relative to the monitor where this box should appear
-  int PosY,               : Y position relative to your monitor where this box should appear
+  string Message,         : ダイアログボックスのメッセージ。
+  bool AllowMulti,        : 複数のファイルを許可するかどうか？
+  string[] Filters,       : 文字列の配列 => (説明 |*.png)。ファイル拡張子フィルターに使用されます
+  int PosX,               : このボックスを表示するモニターに対する相対的なX位置
+  int PosY,               : このボックスを表示するモニターに対する相対的なY位置
   string ThemeBg,         : HtmlColourCode
   string ThemeForeColour  : HtmlColourCode
 ```
-(Assuming the Dll part is already done:) Use in VBA like this:
-or just download the sample file and look what functions you would copy to your application.
+(Dll部分はすでに完了していると仮定して:) VBAでは以下のように使用します:
+または、サンプルファイルをダウンロードして、アプリケーションにコピーする機能を確認してください。
 
 ```
     Dim FilePaths As String
-    FilePaths = gDll.DLL.ShowDialogForFile("No multiple files allowed", False)
+    FilePaths = gDll.DLL.ShowDialogForFile("複数のファイルは許可されていません", False)
 ```
 
-or customised one:
+またはカスタマイズしたもの:
 ```VBA
     Dim Filters(2) As String
     
-    Filters(0) = "Png Pictures only |*.png"
-    Filters(1) = "All files |*.*"
+    Filters(0) = "Png画像のみ |*.png"
+    Filters(1) = "すべてのファイル |*.*"
     
     Dim FilePaths As String
-    FilePaths = gDll.DLL.ShowDialogForFile(Message:="Feel free to drop many files", allowmulti:=False, Filters:=Filters, PosX:=0, PosY:=0, ThemeBg:="", ThemeForeColour:="")
+    FilePaths = gDll.DLL.ShowDialogForFile(Message:="たくさんのファイルをドロップしてください", allowmulti:=False, Filters:=Filters, PosX:=0, PosY:=0, ThemeBg:="", ThemeForeColour:="")
     
 ```
-If you wish to have a string array result
+文字列配列の結果が必要な場合
 ```
     dim Files() as string
-    Files = gDll.ShowDialogForFileArray(Message:="Feel free to drop many files", allowmulti:=False, Filters:=Filters, PosX:=0, PosY:=0, ThemeBg:="", ThemeForeColour:="")
-    'Will return a string array of selected files
+    Files = gDll.ShowDialogForFileArray(Message:="たくさんのファイルをドロップしてください", allowmulti:=False, Filters:=Filters, PosX:=0, PosY:=0, ThemeBg:="", ThemeForeColour:="")
+    '選択されたファイルの文字列配列を返します
 ```
 
-View in action:
+動作を確認:
 ![File drag and drop gif](https://github.com/krishKM/VBA_TOOLS/blob/master/screenshots/FileDropInAction.gif)
 
-Errors
+エラー
 ![File drag and drop error gif](https://github.com/krishKM/VBA_TOOLS/blob/master/screenshots/VBA-RICH-UI-DRAG-DROP.gif)
 <hr>
 
@@ -607,29 +607,29 @@ Errors
 
 
 
-# Load Picture from URL to ImageControl without saving
-Oh wow! how many people wished this was possible out-of-the-box? Many of us spent good amount of time searching for good tutorials and most the results are simple wayarounds than solutions. Pages after pages of codes with APIs and classes or use web-browser control, buy third-party image control or download the picture and load again.
+# 保存せずにURLからイメージコントロールへ画像を読み込む
+おお！どれだけの人がこれが標準で可能ならと願ったことでしょう？私たちの多くは、良いチュートリアルを探すのにかなりの時間を費やしましたが、ほとんどの結果は解決策というよりも単純な回避策でした。APIやクラスを使った何ページものコード、Webブラウザコントロールの使用、サードパーティの画像コントロールの購入、あるいは画像をダウンロードして再度読み込むなど。
 
-No offence to the web-browser control. It is great for what it is but surely not designed for showing images(IMHO). Functions like, zooming, streching aren't available via web-browser control. Of course you can use HTML tags but that would be a "way around" to another "way around" problem. isn't it?
+Webブラウザコントロールを悪く言うつもりはありません。それはそれで素晴らしいですが、画像の表示用に設計されていないのは確かです（個人的な意見ですが）。ズームやストレッチなどの機能はWebブラウザコントロールでは利用できません。もちろんHTMLタグを使用することもできますが、それは別の「回避策」の問題への「回避策」になってしまいますよね？
 
-Don't want to buy third party controls because they need to be installed! (no-go for many)
-Don't want to download and load either. Too much footprint/mess to clean up with.
+インストールが必要なため、サードパーティのコントロールは買いたくない！（多くの人にとってNG）
+ダウンロードして読み込むのも嫌だ。フットプリントが大きすぎるし、後片付けも面倒だ。
 
-Let's meet our simple one liner which can load images into an Image control. No download, no too much code, no nonsense
+画像コントロールに画像を読み込むことができる、私たちのシンプルな1行コードをご紹介します。ダウンロード不要、多すぎるコード不要、ナンセンス不要です。
 
 ```VBA
-  'Dll function
+  'Dll関数
   'PictureFromUrl(
-    string URL,             :  Image url. web url or local path
-    bool ShowError = false, : Show error notification when url cannot be loaded
-    long sender = 0         : Sender HWND, not used now.
+    string URL,             :  画像のURL。WebのURLまたはローカルパス
+    bool ShowError = false, : URLが読み込めない場合にエラー通知を表示する
+    long sender = 0         : 送信者のHWND。現在は使用されていません。
     )
   
-  'VBA Wrapper (used for simplicity)
+  'VBAラッパー（簡略化のために使用）
   'ImageControlGetImage(ImagePath as string, optional ShowError=true)
   
   
-'Loading web url
+'WebのURLを読み込む
 Private Sub Command147_Click()
     Dim WebPicture As String
     WebPicture = "https://avatars2.githubusercontent.com/u/1001697?s=460&v=4"
@@ -637,7 +637,7 @@ Private Sub Command147_Click()
     Me.Image113.PictureData = gDll.ImageControlGetImage(WebPicture, ShowError:=True)
 End Sub
 
-'Same function used to load local file path
+'同じ関数を使用してローカルファイルパスを読み込む
 Private Sub Command149_Click()
     Dim WebPicture As String
     WebPicture = "F:\Projects\VBA_DLL\dialogboxgreen.png"
@@ -647,88 +647,88 @@ Private Sub Command149_Click()
 End Sub
 
 ```
-See it in action:
+動作を確認:
 ![Image from web url](https://github.com/krishKM/VBA_TOOLS/blob/master/screenshots/ImageControlInAction.gif)
 
-### If you would like to read urls from your table
-instead using the `control source` property, use the `on current` event in your form to load the pictures.
+### テーブルからURLを読み込みたい場合
+`control source` プロパティを使用する代わりに、フォームの `on current` イベントを使用して画像を読み込みます。
 ```VBA
 Private Sub Form_Current()
-  'Load pictures 
+  '画像を読み込む
     Me.Image8.PictureData = gDll.ImageControlGetImage([url], True)
 End Sub
 ```
-Enjoy and let us know what you think!.
+楽しんでください、そして感想をお聞かせください！
 
 
-# Barcode Control for vba
-Another request from Vba_tools user to be able to show barcodes. I have no idea about barcodes but found a great source in google (https://sourceforge.net/projects/zintnet/). Thanks for the zintnet owner.
-I've adapted few classes and added to our VBA_TOOLS plugin.
+# VBA用バーコードコントロール
+バーコードを表示できるようにしたいというVba_toolsユーザーからの別のリクエストです。私はバーコードについて全く知識がありませんでしたが、Googleで素晴らしいソースを見つけました (https://sourceforge.net/projects/zintnet/)。zintnetの所有者に感謝します。
+いくつかのクラスを適応させ、私たちのVBA_TOOLSプラグインに追加しました。
 
-Unlike other components barcode-control will be embedded into forms and reports so the control cannot be a standalone form so when printing reports or invoices the barcode is visible. To achieve this, we create a barcode in .NET environment and pass the barcode back to Access as an Image. This way an Image control on a form or report can show barcodes.
+他のコンポーネントとは異なり、バーコードコントロールはフォームやレポートに埋め込まれるため、コントロールをスタンドアロンのフォームにすることはできません。そのため、レポートや請求書を印刷するときにバーコードが表示されるようにする必要があります。これを実現するために、.NET環境でバーコードを作成し、そのバーコードを画像としてAccessに戻します。この方法で、フォームやレポート上の画像コントロールにバーコードを表示できます。
 
-Again this is beta version. Have a look and inform us about your thoughts.
+これもベータ版です。ご覧になって、感想をお知らせください。
 
-How to use it?
+使用方法
 
 ```VBA
   Me.imgBarcode.PictureData = gDll.CreateBarcode(Val(Me.BrcodeType.value), Me.txtBarcodeData.value, Val(BarcodeSizeMultiplier.value))
   
-  Parameter list:
+  パラメータリスト:
   '    /// <summary>
 '    ///
 '    /// </summary>
-'    /// <param name="symbology">Type of the barcode</param>
-'    /// <param name="barcodeData">Data value for barcode</param>
-'    /// <param name="width">Width of the graphics / Image</param>
-'    /// <param name="height">height of the grapics/ Image</param>
-'    /// <param name="multiplier">Multiply the size by this value.</param>
-'    /// <returns>Picture Data</returns>
+'    /// <param name="symbology">バーコードの種類</param>
+'    /// <param name="barcodeData">バーコードのデータ値</param>
+'    /// <param name="width">グラフィックス / 画像の幅</param>
+'    /// <param name="height">グラフィックス / 画像の高さ</param>
+'    /// <param name="multiplier">サイズをこの値で乗算します。</param>
+'    /// <returns>画像データ</returns>
 '    CreateBarcode(Symbology symbology, string barcodeData, int width, int height, float multiplier )
 
 ```
 ![qrBarcode.png](https://raw.githubusercontent.com/krishKM/VBA_TOOLS/master/screenshots/qrBarcode.png)
 ![Code39Barcode.png](https://raw.githubusercontent.com/krishKM/VBA_TOOLS/master/screenshots/Code39barcode.png)
 
-# Cool Context Menu for vba
-[Under testing]: testers needed. This function is currently not wrapped. Means more parameters will be added once ready for publish
+# VBA用クールなコンテキストメニュー
+[テスト中]: テスター募集中です。この機能は現在ラップされていません。つまり、公開準備が整ったらさらに多くのパラメータが追加される予定です。
 
-What can I say? Probably most vba users wished this control existed out of the box. Similar to right click context menu, we developed a left mouse clickable context menu.
-Of course styleable, moveable and iconed menu items.
+何と言えばいいでしょうか？おそらくほとんどのVBAユーザーは、このコントロールが標準で存在していればと願っていたでしょう。右クリックのコンテキストメニューと同様に、左クリック可能なコンテキストメニューを開発しました。
+もちろん、スタイル変更可能で、移動可能で、アイコン付きのメニュー項目です。
 
-Enough said. lets see in action.
+十分でしょう。動作を見てみましょう。
 ![ContextMenuPicture](https://github.com/krishKM/VBA_TOOLS/blob/master/screenshots/VBA-RICH-UI-CoolContextMenu.gif)
 
-Since we've got your attention now, let's see how this control works. There are two version
-1>Simple: Just takes an array of strings as menu items and returns the menu item text as the selected value.
-2> Extended: Extended menu can show icons as well as take a dataValue for each menu item. That being said, each menu item is constructed as an array(string:IconPath, string:DataReturnValue, string:MenuItem) ie. array("c:\email.png","1","Send Email")
-add each menu entry within another array to use the extended menu. i.e. Array(array("c:\email.png","1","Send Email"), array("c:\door.png","2","Exit"), array("http://someweblink.png","3","Some menu item with web icon") )
+注目を集めたところで、このコントロールがどのように機能するかを見てみましょう。2つのバージョンがあります。
+1>Simple: メニュー項目として文字列の配列を受け取り、選択された値としてメニュー項目のテキストを返します。
+2> Extended: 拡張メニューでは、アイコンを表示したり、各メニュー項目にデータ値を持たせたりできます。つまり、各メニュー項目は配列(string:アイコンパス, string:データ戻り値, string:メニュー項目)として構築されます。例： array("c:\email.png","1","メール送信")
+拡張メニューを使用するには、各メニューエントリを別の配列内に追加します。例： Array(array("c:\email.png","1","メール送信"), array("c:\door.png","2","終了"), array("http://someweblink.png","3","Webアイコン付きのメニュー項目") )
 
-in code that would be:
+コードでは以下のようになります:
 ```VBA
-	'Simple Menu
-	'Create an array of menu items
+	'シンプルメニュー
+	'メニュー項目の配列を作成
     Dim MenuItems() As String
 	Dim result As String
 
-    MenuItems = VBA.Split("Do Something,I'm so cool, Send Email, Print, Settings, Save, Save As, Make Pdf", ",")
-    FnArrayAddItem MenuItems, "Exit"
-    FnArrayAddItem MenuItems, "Exit Application"
+    MenuItems = VBA.Split("何かをする,私はとてもクール,メール送信,印刷,設定,保存,名前を付けて保存,PDF作成", ",")
+    FnArrayAddItem MenuItems, "終了"
+    FnArrayAddItem MenuItems, "アプリケーション終了"
     
     result = gDll.DLL.ShowContextMenu(MenuItems)
 	gDll.Toast result, , , Me.hwnd
-    If (result = "Exit") Then
+    If (result = "終了") Then
         DoCmd.Close acForm, Me.Name, acSaveYes
-    ElseIf (result = "Exit Application") Then
+    ElseIf (result = "アプリケーション終了") Then
         Application.Quit
     End If
 	
 ```
 
 ```VBA
-	'Extended menu with icons
+	'アイコン付き拡張メニュー
 	Dim result As String
-    result = (gDll.DLL.ShowContextMenuA(Array(Array("", "0", "Web loading takes time"), Array("F:\PROJECT_SUPPORT\Images\csharp.png", "1", ".NET is cool"), Array("https://static.thinkster.io/topics/node_icon.png", "2", "Loading icon from web"), Array("glyphicons-389-exit", "3", "Exit"))))
+    result = (gDll.DLL.ShowContextMenuA(Array(Array("", "0", "Web読み込みには時間がかかります"), Array("F:\PROJECT_SUPPORT\Images\csharp.png", "1", ".NETはクールです"), Array("https://static.thinkster.io/topics/node_icon.png", "2", "Webからアイコンを読み込み中"), Array("glyphicons-389-exit", "3", "終了"))))
     
     
     gDll.Toast result, vbInformation
@@ -748,16 +748,16 @@ in code that would be:
 
 
 
-# Other Features that are interesting
+# その他興味深い機能
 
 # DragMe
-A simple function that allows one to drag a borderless form.
-have a look here. 
+枠のないフォームをドラッグできるようにするシンプルな機能です。
+こちらをご覧ください。
 ![DragME](https://github.com/krishKM/VBA_TOOLS/blob/master/screenshots/VBA-RICH-UI-DragMe.gif)
 
-How to use?
+使用方法:
 ```VBA
-	'simply use the mouseDown event
+	'シンプルに mouseDown イベントを使用します
 	
 	Private Sub Label251_MouseDown(Button As Integer, Shift As Integer, X As Single, Y As Single)
 		Call gDll.DLL.DragMe(Me.hwnd)
@@ -766,77 +766,77 @@ How to use?
 ```
 
 ### AreYouSure?
-a simple yes no popup returns true or false. Sometims you just want to confirm the user for yes or no action.
-This might be a silly but cool yes no box:) 
+シンプルな「はい/いいえ」のポップアップで、trueまたはfalseを返します。ユーザーに「はい」または「いいえ」のアクションを確認したいだけの場合があります。
+これは単純ですが、クールな「はい/いいえ」ボックスかもしれません :)
 ```VBA
 ? gDll.AreYouSure
 
 ```
-It is also possible to colour theme the AreYouSureBox by providing Hex Colour code or if you are using bootstrap class
+Hexカラーコードを提供するか、ブートストラップクラスを使用している場合は、AreYouSureBoxのテーマカラーを変更することも可能です。
 ```VBA
 ? gDll.AreYouSureE(Me, "#aa66cc", "#000000", "#aa66cc", "#F65656") or 
 ?gDll.AreYouSureE(, gBootstrap.default_color_dark, gBootstrap.WHITE, gBootstrap.AMBER, gBootstrap.TEAL_LIGHTEN_3)
 ```
 ![AreYouSureCollection](https://raw.githubusercontent.com/krishKM/VBA_TOOLS/master/screenshots/VBA-RICH-UI-AreYouSureCollection.png)
 
-### Download a file and show progressbar for vba
-Another cool feature. This function allows you to download a file from the internet and shows the download progress using above cool progressbar.
+### ファイルのダウンロードとプログレスバー表示
+もう一つのクールな機能です。この機能を使用すると、インターネットからファイルをダウンロードし、上記のクールなプログレスバーを使用してダウンロードの進捗を表示できます。
 
 ```DownloadedFile = DLL.DownloadAFile(Url, [Destination], [OverWrite = true], [ShowProgress = true])```
-Except the Url, all other parameters are optional. If destination is not provided. File will be saved in application.path
+Url以外のすべてのパラメータはオプションです。Destination（保存先）が指定されていない場合、ファイルは application.path に保存されます。
 
-### Save Clipboard images to local file
-Sometimes, simple things can be very dificult in VBA. If you are after saving clipboard image to a local path. Check this function.
+### クリップボードの画像をローカルファイルに保存
+VBAでは、単純なことが非常に難しい場合があります。クリップボードの画像をローカルパスに保存したい場合は、この機能を確認してください。
 
-``` SaveClipboardToImage(string PathToSave, string FileName, string ImageType) ``` All parameters are optional and by default Jpeg image type is used. If the clipbord object contains any images, it will be saved wherever you want and the file path is returned.
-in the sample accdb, there is a wrapper ```SaveClipboardToImage``` check it out.
+``` SaveClipboardToImage(string PathToSave, string FileName, string ImageType) ``` すべてのパラメータはオプションで、デフォルトではJpeg画像タイプが使用されます。クリップボードオブジェクトに画像が含まれている場合、それは希望の場所に保存され、ファイルパスが返されます。
+サンプルaccdbにラッパー ```SaveClipboardToImage``` がありますので、確認してください。
 
-### PadLeft and PadRight
-Uses .NET padleft and padRight function.
+### PadLeft および PadRight
+.NETのpadleftおよびpadRight関数を使用します。
 ``` gdll.DLL.PadLeft("1",10,"0") => 0000000001
     ?gdll.DLL.PadRight("1",10,"0") = > 1000000000
 ```     
-### check out the getCursorPosition function which returns x,y position of the cursor!
+### カーソルのx,y位置を返す getCursorPosition 関数もチェックしてみてください！
 
-### [Receive SignalR Messages]
-This works for me because I do have own signalR server but generally is under development or say not ready yet!
-It's like google push messages or any other push message service. You can send notification to all of your logged in yours from one place.
-Expanding this, you could also use as a chat server where all logged in participants could send and receive messages among them.
-Again without stressing VBA apps.
+### [SignalRメッセージの受信]
+私には独自のSignalRサーバーがあるので動作しますが、一般的には開発中、または準備ができていないと言えます！
+Googleプッシュメッセージやその他のプッシュメッセージサービスのようなものです。ログインしているすべてのユーザーに一箇所から通知を送信できます。
+これを拡張すると、ログインしているすべての参加者がメッセージを送受信できるチャットサーバーとしても使用できます。
+これもVBAアプリに負荷をかけることなく実現できます。
 
 
 ### ByteToImage
-ByteToImage(byte[] byteArraym string TemporaryPath, bool useCache) is a function for MS Access users. Basically you can convert a byteARray received from database into a pictures.
-Will return the path of the image file. Use the path as image location for your image property.
-something like Me.Image32.Picture = gDll.ByteToImage(ByteArray, "SaveLocationPath")
+ByteToImage(byte[] byteArraym string TemporaryPath, bool useCache) はMS Accessユーザー向けの機能です。基本的に、データベースから受信したバイト配列を画像に変換できます。
+画像ファイルのパスを返します。パスを画像プロパティの画像の場所として使用します。
+Me.Image32.Picture = gDll.ByteToImage(ByteArray, "SaveLocationPath") のように使用します。
 
-### FTP(S) UPLOAD
-simple tool which uses WinScp to upload files securely to your host. Handy if you want to upload some files without doing too much VBA or having activeX components.
+### FTP(S) アップロード
+WinScpを使用してファイルをホストに安全にアップロードするシンプルなツールです。VBAであまり多くのことをしたり、ActiveXコンポーネントを使用したりせずにファイルをアップロードしたい場合に便利です。
 ```VBA
-	'Simply use as 
+	'シンプルに以下のように使用します
 	Debug.Print gDll.FTPUploadFile(ServerName, port, Username, Password, "F:\Projects\VBA_DLL\Modern Inputbox for vba purple.png", "/screenshots/", SSHFingerprintOfTheRemoteServer, Ftp, Explicit, False)
 	
-	Parameter list
+	パラメータリスト
 ```
 ```C#
 		/// <summary>
-        /// Uoloads a file to the given ftp server
+        /// 指定されたFTPサーバーにファイルをアップロードします
         /// </summary>
-        /// <param name="host">Host server</param>
-        /// <param name="port">Port number</param>
-        /// <param name="username">FTP UserName</param>
-        /// <param name="password">FTP password</param>
-        /// <param name="localFileName">Path to local file</param>
-        /// <param name="remoteLocation">Location in remote server</param>
-        /// <param name="hostCertificateFingerprint">Remote Server FingerPrint</param>
-        /// <param name="protocol">Ftp Protocol, ftp, sftp...</param>
-        /// <param name="ftpSecure">Type of connection, implicit, explicit</param>
-        /// <param name="giveUpSecurityAndAcceptAnyTlsHostCertificate">debug use only</param>
-        /// <returns>string representation of true or false or error message</returns>
+        /// <param name="host">ホストサーバー</param>
+        /// <param name="port">ポート番号</param>
+        /// <param name="username">FTPユーザー名</param>
+        /// <param name="password">FTPパスワード</param>
+        /// <param name="localFileName">ローカルファイルへのパス</param>
+        /// <param name="remoteLocation">リモートサーバーの場所</param>
+        /// <param name="hostCertificateFingerprint">リモートサーバーのフィンガープリント</param>
+        /// <param name="protocol">Ftpプロトコル、ftp、sftp...</param>
+        /// <param name="ftpSecure">接続タイプ、implicit、explicit</param>
+        /// <param name="giveUpSecurityAndAcceptAnyTlsHostCertificate">デバッグ用のみ</param>
+        /// <returns>trueまたはfalseの文字列表現、またはエラーメッセージ</returns>
 ````
 
-### FTP Delete Remote File
-Simply delete a file from your remote server. Returns true or false + error message as string.
+### FTP リモートファイルの削除
+リモートサーバーからファイルを削除するだけです。trueまたはfalseとエラーメッセージを文字列として返します。
 ```VBA
   'Server as string
   'Port as number
@@ -848,53 +848,53 @@ Simply delete a file from your remote server. Returns true or false + error mess
 ```
 
 ### ImportJSON
-Somewhere similar to Application.ImportXML, you can create access tables from JSON array strings.
-I haven't done extensive test but works for my needs.
+Application.ImportXMLに少し似ていますが、JSON配列文字列からAccessテーブルを作成できます。
+広範なテストは行っていませんが、私のニーズには合っています。
 
-Simply call
+シンプルに呼び出します
 ```VBA
-  gdll.ImportJSON(YourJSonArrayString, "Target Table name", ImportOptions[append,structureOnly,structureAndData], recreate)
- 'Recreate will delete and recreate the table. If ApendOnly requested, recreate is ineffective
+  gdll.ImportJSON(YourJSonArrayString, "ターゲットテーブル名", ImportOptions[append,structureOnly,structureAndData], recreate)
+ 'Recreateはテーブルを削除して再作成します。AppendOnlyが要求された場合、recreateは無効になります
  
- 'Here is a sample working command. Which will create a new table called tblJsonTest and import all the content from the array.
+ '以下は動作するコマンドのサンプルです。tblJsonTestという新しいテーブルを作成し、配列からすべてのコンテンツをインポートします。
  gdll.ImportJson("[{""id"":10,""name"":""User"",""add"":false,""edit"":true,""authorize"":true,""view"":true},    {""id"":11,""name"":""Group"",""add"":true,""edit"":false,""authorize"":false,""view"":true},    {""id"":12,""name"":""Permission"",""add"":true,""edit"":true,""authorize"":true,""view"":true}]","tblJsonTest",acStructureAndData,True)
   '
 ```
 
 ### ExportToJson
-It is now possible to export table contents as JSON string. 
-Method1:
+テーブルの内容をJSON文字列としてエクスポートできるようになりました。
+方法1:
 ```VBA
-  'Eecute the SQL SELECT command and saves the result set as JSON formatted string.
+  'SQL SELECTコマンドを実行し、結果セットをJSON形式の文字列として保存します。
   gdll.ExportToJSON("select * from tbljsontest where authorize = true;","MyJson.Txt",overwrite:=false,isRawSql:=true)
 ```
 
-Method2:
+方法2:
 ```VBA
-  'Export everything from the table/query
+  'テーブル/クエリからすべてをエクスポートします
   gdll.ExportToJSON("tbljsontest ",SaveAs:= "MyJson.Txt",overwrite:=false,isRawSql:=false)
 ```
-In this method, we have passed a table name/query name to the export function and set isRawSql = false. The export function will then generate SQL statement similar to “SELECT * FROM givenTableName/QueryName;” and perform the JSON Export.
+この方法では、エクスポート関数にテーブル名/クエリ名を渡し、isRawSql = falseを設定しました。エクスポート関数は、「SELECT * FROM givenTableName/QueryName;」のようなSQLステートメントを生成し、JSONエクスポートを実行します。
 
-If the SaveAs (target file name) is empty, no file will be exported but the conversion will still happen and converted string will be returned as result.
+SaveAs（ターゲットファイル名）が空の場合、ファイルはエクスポートされませんが、変換は行われ、変換された文字列が結果として返されます。
 
-Download the sample project and have a play.
+サンプルプロジェクトをダウンロードして遊んでみてください。
 
 
-# [Upcoming functions]
-many... :) 
-if you want a specific function email or leave a comment :)
+# [今後の機能]
+たくさんあります... :)
+特定の機能が必要な場合は、メールまたはコメントを残してください :)
 
-# Can't wait? Just download! and enjoy
-<a href="https://github.com/krishKM/VBA_TOOLS/tree/master/samples"> sample</a>
+# 待ちきれませんか？ 今すぐダウンロードして楽しみましょう！
+<a href="https://github.com/krishKM/VBA_TOOLS/tree/master/samples"> サンプル</a>
 
-# [Copyrights, Licence, Credits]
+# [著作権、ライセンス、クレジット]
 
 Copyright © 2018 Krish
 
-You are free to use the dll for non-commercial purposes. Commercial users, you can use the dll with one condition, please let us know who you are. We are very happy to have your/company name in out clients list.
+非商用目的であれば、DLLを自由に使用できます。商用ユーザーの場合、1つの条件付きでDLLを使用できます。あなたが誰であるかをお知らせください。クライアントリストにあなたの名前/会社名が載ることを非常に嬉しく思います。
 
-Would appreciate your credits and links to my GitHub page.
+私のGitHubページへのクレジットとリンクをいただければ幸いです。
 
 
 
@@ -902,13 +902,13 @@ Would appreciate your credits and links to my GitHub page.
 <hr>
 <hr>
 <hr>
-# Raw methods from class
+# クラスの生メソッド
 <hr>
 <hr>
 
 ```C#
 /// <summary>
-/// Shows toasts on the desktop
+/// デスクトップにトースト通知を表示します
 /// </summary>
 public async void FN_SHOW_TOAST(string iMessage, int iDuration, string iBG_COLOR, long iANIME_DURATION, string iFONT_COLOR, int iX, int iY, int iANIM_DIRECTION, bool iAUTO_CLOSE = true)
 {
@@ -917,22 +917,22 @@ public async void FN_SHOW_TOAST(string iMessage, int iDuration, string iBG_COLOR
  
 
 /// <summary>
-/// Converts ByteArray to an Image and saves in a provided location.
+/// バイト配列を画像に変換し、指定された場所に保存します。
 /// </summary>
-/// <returns>The path of the image saved locally</returns>
+/// <returns>ローカルに保存された画像のパス</returns>
 public string ByteToImage(byte[] byteArrayIn, string iTempPath, bool useCache)
 {
 }
  
 /// <summary>
-/// Converts Byte Array to a bitmap
+/// バイト配列をビットマップに変換します
 /// </summary>
 public Bitmap ByteToBitmap(byte[] byteArr)
 {
 }
  
 /// <summary>
-/// Returns a ByteArray of the image
+/// 画像のバイト配列を返します
 /// </summary>
 /// <param name="hWND"></param>
 public byte[] TakeScreenShotFromHwnd(long hWND)
@@ -940,35 +940,35 @@ public byte[] TakeScreenShotFromHwnd(long hWND)
 }
  
 /// <summary>
-/// Take screen-shot of entire desktop. Returns byteArray
+/// デスクトップ全体のスクリーンショットを撮ります。バイト配列を返します
 /// </summary>
 public byte[] TakeScreenShot()
 {
 }
  
 /// <summary>
-/// Take screen-shot of entire desktop. Saves in a location and returns the location
+/// デスクトップ全体のスクリーンショットを撮ります。場所に保存し、その場所を返します
 /// </summary>
 public string TakeScreenShot1(string SavePath)
 {
 }
  
 /// <summary>
-/// Returns ByteArray containing the picture received from the url
+/// URLから受信した画像を含むバイト配列を返します
 /// </summary>
 /// <param name="URL"></param>
 public byte[] PictureFromUrl(string URL, bool ShowError = false, long sender = 0)
 {
 }
 /// <summary>
-/// uses winScp. securely uploads files to the given host
+/// winScpを使用します。指定されたホストにファイルを安全にアップロードします
 /// </summary>
 public string FTPS_UPLOAD(string iHost, int iPort, string iUsername, string iPassword, string iLocalFileName, string iRemoteLocation, string iHostCertificateFingerprint = "")
 {
 }
  
 /// <summary>
-/// Returns a formated string using C# string.format()
+/// C# string.format() を使用してフォーマットされた文字列を返します
 /// </summary>
 public string FN_STRING_FORMAT(string iString, params object[] iParams)
 {
@@ -980,14 +980,14 @@ public string FN_SERIALIZE(dynamic iObject)
 }
  
 /// <summary>
-/// Returns Cursor position Relative to the screen
+/// 画面に対する相対的なカーソル位置を返します
 /// </summary>
 public string getCursorPosition()
 {
 }
  
 /// <summary>
-/// Shows a dialog-form for parent window.. non customizable
+/// 親ウィンドウ用のダイアログフォームを表示します.. カスタマイズ不可
 /// </summary>
 /// <param name="iHWND"></param>
 public int AreYouSure(int iHWND)
@@ -995,49 +995,49 @@ public int AreYouSure(int iHWND)
 }
  
 /// <summary>
-/// Shows confirm dialog, customizable
+/// 確認ダイアログを表示します、カスタマイズ可能
 /// </summary>
 public int ShowDialog(string caption, string message, string buttonTextForYes, string buttonTextForNo)
 {
 }
  
 /// <summary>
-/// Shows confirm dialog, customizable
+/// 確認ダイアログを表示します、カスタマイズ可能
 /// </summary>
 public int ShowDialogRich(string caption, string message, string buttonTextForYes, string buttonTextForNo)
 {
 }
  
 /// <summary>
-/// Shows rich dialog form using JSON configuration
+/// JSON設定を使用してリッチダイアログフォームを表示します
 /// </summary>
 public int ShowDialogJSON(string JSONConfig)
 {
 }
  
 /// <summary>
-/// Shows Input-box form
+/// インプットボックスフォームを表示します
 /// </summary>
 public string ShowInputBox(InputBoxType Type = InputBoxType.Text, string Title = "", string Message = "", int PosX=0, int PosY=0, string ThemeBg = "", string ThemeForeColour = "")
 {
 }
  
 /// <summary>
-/// Shows progressbar
+/// プログレスバーを表示します
 /// </summary>
 public long OpenProgressBar(string Title, string Message, int Total, bool AutoClose, string ThemeBg, string TitleForeColour)
 {
 }
  
 /// <summary>
-/// Sets value for an existing progressbar or show error
+/// 既存のプログレスバーの値を設定するか、エラーを表示します
 /// </summary>
 public long SetProgressBar(long Handle, int CurrentValue, string Message, int NewMaxValue, bool AutoClose = false)
 {
 }
  
 /// <summary>
-/// Closes an already open progressbar.
+/// すでに開いているプログレスバーを閉じます。
 /// </summary>
 /// <param name="Handle"></param>
 public void CloseProgressBar(long Handle)
@@ -1045,14 +1045,14 @@ public void CloseProgressBar(long Handle)
 }
  
 /// <summary>
-/// If clipboard contains an Image, save in temp location and return the file path
+/// クリップボードに画像が含まれている場合、一時的な場所に保存し、ファイルパスを返します
 /// </summary>
 public string SaveClipboardToImage(string path, string FileName, string ImageType)
 {
 }
  
 /// <summary>
-/// Download a file from web and save it to local path. Returns saved file path
+/// Webからファイルをダウンロードし、ローカルパスに保存します。保存されたファイルパスを返します
 /// </summary>
 public string DownloadAFile(string url, string destination, bool overWrite, bool ShowProgress)
 {
@@ -1070,28 +1070,28 @@ public string PadRight(string Input, int Length, string PaddingChar="")
  
  
 /// <summary>
-/// De-Serializes a JSON string to a dynamic type. Returns the dynamic object
+/// JSON文字列を動的型にデシリアライズします。動的オブジェクトを返します
 /// </summary>
 public object JSONToObject(string json)
 {
 }
  
 /// <summary>
-/// Reads a property from JSON dynamic object and returns the property value.
+/// JSON動的オブジェクトからプロパティを読み取り、プロパティ値を返します。
 /// </summary>
 public string JSONGetValue(object iObject, string propertyName)
 {
 }
  
 /// <summary>
-/// Extracts a JSON property from given JSON object and returns the value as JSON object.
+/// 指定されたJSONオブジェクトからJSONプロパティを抽出し、値をJSONオブジェクトとして返します。
 /// </summary>
 public object JSONGetObject(object jsonParsedObject, string propertyName)
 {
 }
  
 /// <summary>
-/// Show modal modern UI calendar for vBA users
+/// VBAユーザー向けにモーダルなモダンUIカレンダーを表示します
 /// </summary>
 /// <returns></returns>
 public DateTime ShowCalendar()
@@ -1099,30 +1099,30 @@ public DateTime ShowCalendar()
 }
  
 /// <summary>
-/// Shows custom open file dialog. Allows drag and drop too.
+/// カスタムファイルオープンダイアログを表示します。ドラッグアンドドロップも可能です。
 /// </summary>
-/// <returns>Json formatted string</returns>
+/// <returns>Json形式の文字列</returns>
 public string ShowDialogForFile(string Message = "", bool AllowMulti = true, string[] Filters = null, int PosX =0, int PosY =0, string ThemeBg="", string ThemeForeColour="", bool closeAfterFileDrop = true)
 {
 }
  
 /// <summary>
-/// Shows custom open file dialog. Allows drag and drop too.
+/// カスタムファイルオープンダイアログを表示します。ドラッグアンドドロップも可能です。
 /// </summary>
-/// <returns>String[] array</returns>
+/// <returns>String[] 配列</returns>
 public string[] ShowDialogForFileArray(string Message = "", bool AllowMulti = true, string[] Filters = null, int PosX = 0, int PosY = 0, string ThemeBg = "", string ThemeForeColour = "", bool closeAfterFileDrop = true)
 {
 }
  
 /// <summary>
-/// Converts HTML color to access color code
+/// HTMLカラーをAccessカラーコードに変換します
 /// </summary>
 public int ColorHexToAccess(string HTMLColor)
 {
 }
  
 /// <summary>
-/// Converts MS ACCESS color to HTML colour code
+/// MS ACCESSカラーをHTMLカラーコードに変換します
 /// </summary>
 public string ColorAccessToHex(long AccessColor)
 {
@@ -1130,27 +1130,27 @@ public string ColorAccessToHex(long AccessColor)
  
  
 /// <summary>
-/// Returns true or false whether the url is reachable
+/// URLが到達可能かどうかのtrueまたはfalseを返します
 /// </summary>
 public bool UrlIsReachable(string url)
 {
 }
  
 /// <summary>
-/// Returns true or false whether the url is well formatted
+/// URLの形式が正しいかどうかのtrueまたはfalseを返します
 /// </summary>
 public bool UrlIsValid(string url)
 {
 }
 /// <summary>
-/// Is the given url a local file path?
+/// 指定されたURLはローカルファイルパスですか？
 /// </summary>
 public bool UrlIsLocalPath(string p)
 {
 }
  
 /// <summary>
-/// Is the given url a local file path?
+/// 指定されたURLはローカルファイルパスですか？
 /// </summary>
 public bool UriIsLocalPath(string p)
 {
@@ -1159,7 +1159,7 @@ public bool UriIsLocalPath(string p)
 // ------------------  Dell specific functions------------------------
  
 /// <summary>
-/// Returns App version
+/// アプリのバージョンを返します
 /// </summary>
 public string version()
 {
