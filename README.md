@@ -1,4 +1,6 @@
 # A friendly helper DLL that will make you smile.
+[🇯🇵 日本語ドキュメント (Japanese Docs)](README_JP.md)
+
 **No installation**, **no ActiveX**, **no Admin-Rights.** 
 Just add this Dll to your VBA project folder and have some cool UI features. Have only tested in MS Access but it should work in all VBA environment. Works with ACCDE too.
 
